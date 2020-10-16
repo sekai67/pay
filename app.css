@@ -46,17 +46,16 @@ nav:hover {
 	color: darkorange;
 }
 
-section {
-	margin: 2em 0;
+article ol {
+	display: inline-block;
+	text-align: left;
 }
-section ol {
-	padding: 0;
-}
-section li {
+article li {
 	margin: 1em 0;
 }
 img.qrcode {
 	width: 50vw;
+	max-width: 400px;
 }
 
 footer {
@@ -69,5 +68,4 @@ footer small {
 footer pre {
 	display: inline-block;
 	text-align: left;
-	margin: auto;
 }

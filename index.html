@@ -8,8 +8,7 @@
 	<base target="_blank">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap">
 	<link rel="stylesheet" href="app.css">
-	<script async src="https://unpkg.com/vue@next"></script>
-	<script async src="https://platform.twitter.com/widgets.js"></script>
+	<script async src="https://unpkg.com/vue@3.0.1/dist/vue.global.prod.js"></script>
 	<script async src="app.js"></script>
 </head>
 
@@ -25,111 +24,97 @@
 	</main>
 	<article v-else v-cloak>
 		<h2>{{selected}}で支払う</h2>
-		<section v-if="selected=='現金'">
-			<ol>
-				<li>
-					<span v-if="yen">{{yen}}円を</span>手渡ししてね
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='LINE Pay'">
-			<ol>
-				<li>
-					友達登録してね
-					<br><br>
-					<img class="qrcode" src="assets/line.jpg">
-				</li>
-				<li>
-					<span v-if="yen">{{yen}}円を</span>送金してね
-					<br>
-					<small>
-						(<a href="https://help.line.me/line/?contentId=20015567">LINE Pay残高をLINEの友だちに送金するには？</a>)
-					</small>
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='メルペイ'">
-			<ol>
-				<li>
-					<span v-if="yen">{{yen}}円の</span>受け取りリンクをつくってね
-					<br>
-					<small>
-						(<a href="https://www.mercari.com/jp/help_center/article/994/">メルペイ残高やポイントをおくるには？</a>)
-					</small>
-				</li>
-				<li>
-					受け取りリンクをDMしてね
-					<br>
-					<a href="https://twitter.com/messages/compose?recipient_id=3136268972" class="twitter-dm-button" data-screen-name="@sekai67">Message @sekai67</a>
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='Kyash'">
-			<ol>
-				<li>
-					友達登録してね<br><br>
-					<img class="qrcode" src="assets/kyash.jpg">
-				</li>
-				<li>
-					<span v-if="yen">{{yen}}円を</span>送金してね
-					<br>
-					<small>
-						(<a href="https://support.kyash.co/hc/ja/articles/900002413646-%E9%80%81%E9%87%91%E6%96%B9%E6%B3%95">送金方法 - Kyash HELP</a>)
-					</small>
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='PayPay'">
-			<ol>
-				<li>
-					QRコードを読み取ってね<br>
-					<small>
-						(<a href="https://paypay.ne.jp/guide/send/">PayPay残高を送る</a>)
-					</small>
-				</li>
-				<li>
-					<span v-if="yen">{{yen}}円を</span>送金してね
-					<br><br>
-					<img class="qrcode" src="assets/paypay.jpg">
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='d払い'">
-			<ol>
-				<li>
-					QRコードを読み取ってね<br>
-					<small>
-						(<a href="https://service.smt.docomo.ne.jp/keitai_payment/guide/wallet/remit.html#QrTransfer">d払いアプリで送金する > QRコードで送金・受け取り</a>)
-					</small>
-				</li>
-				<li>
-					<span v-if="yen">{{yen}}円を</span>送金してね
-					<br><br>
-					<img class="qrcode" src="assets/dbarai.jpg">
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='Revolut'">
-			<ol>
-				<li>
-					下のリンクから<span v-if="yen">{{yen}}円を</span>送金してね
-					<br><br>
-					<a href="https://pay.revolut.com/profile/kazukir21b">https://pay.revolut.com/profile/kazukir21b</a>
-				</li>
-			</ol>
-		</section>
-		<section v-else-if="selected=='PayPal'">
-			<ol>
-				<li>
-					下のリンクから<span v-if="yen">{{yen}}円を</span>送金してね
-					<br><br>
-					<a href="https://paypal.me/sekai67">https://paypal.me/sekai67</a>
-				</li>
-			</ol>
-		</section>
-		<section v-else>
-			それは受け付けてないよ
-		</section>
+		<ol v-if="selected=='現金'">
+			<li>
+				<span v-if="yen">{{yen}}円を</span>手渡ししてね
+			</li>
+		</ol>
+		<ol v-else-if="selected=='LINE Pay'">
+			<li>
+				友達登録してね
+				<br><br>
+				<img class="qrcode" src="assets/line.jpg">
+			</li>
+			<li>
+				<span v-if="yen">{{yen}}円を</span>送金してね
+				<br>
+				<small>
+					(<a href="https://help.line.me/line/?contentId=20015567">LINE Pay残高をLINEの友だちに送金するには？</a>)
+				</small>
+			</li>
+		</ol>
+		<ol v-else-if="selected=='メルペイ'">
+			<li>
+				<span v-if="yen">{{yen}}円の</span>受け取りリンクをつくってね
+				<br>
+				<small>
+					(<a href="https://www.mercari.com/jp/help_center/article/994/">メルペイ残高やポイントをおくるには？</a>)
+				</small>
+			</li>
+			<li>
+				受け取りリンクをDMしてね
+				<br><br>
+				<a href="https://twitter.com/messages/compose?recipient_id=3136268972">@sekai67にDMする</a>
+			</li>
+		</ol>
+		<ol v-else-if="selected=='Kyash'">
+			<li>
+				友達登録してね<br><br>
+				<img class="qrcode" src="assets/kyash.jpg">
+			</li>
+			<li>
+				<span v-if="yen">{{yen}}円を</span>送金してね
+				<br>
+				<small>
+					(<a href="https://support.kyash.co/hc/ja/articles/900002413646-%E9%80%81%E9%87%91%E6%96%B9%E6%B3%95">送金方法 - Kyash HELP</a>)
+				</small>
+			</li>
+		</ol>
+		<ol v-else-if="selected=='PayPay'">
+			<li>
+				QRコードを読み取ってね<br>
+				<small>
+					(<a href="https://paypay.ne.jp/guide/send/">PayPay残高を送る</a>)
+				</small>
+			</li>
+			<li>
+				<span v-if="yen">{{yen}}円を</span>送金してね
+				<br><br>
+				<img class="qrcode" src="assets/paypay.jpg">
+			</li>
+		</ol>
+		<ol v-else-if="selected=='d払い'">
+			<li>
+				QRコードを読み取ってね<br>
+				<small>
+					(<a href="https://service.smt.docomo.ne.jp/keitai_payment/guide/wallet/remit.html#QrTransfer">d払いアプリで送金する > QRコードで送金・受け取り</a>)
+				</small>
+			</li>
+			<li>
+				<span v-if="yen">{{yen}}円を</span>送金してね
+				<br><br>
+				<img class="qrcode" src="assets/dbarai.jpg">
+			</li>
+		</ol>
+		<ol v-else-if="selected=='Revolut'">
+			<li>
+				下のリンクから<span v-if="yen">{{yen}}円を</span>送金してね
+				<br><br>
+				<a href="https://pay.revolut.com/profile/kazukir21b">https://pay.revolut.com/profile/kazukir21b</a>
+			</li>
+		</ol>
+		<ol v-else-if="selected=='PayPal'">
+			<li>
+				下のリンクから<span v-if="yen">{{yen}}円を</span>送金してね
+				<br><br>
+				<a href="https://paypal.me/sekai67">https://paypal.me/sekai67</a>
+			</li>
+		</ol>
+		<ol v-else>
+			<li>
+				それは受け付けてないよ
+			</li>
+		</ol>
 		<nav class="small" @click="selected=''">別の方法で支払う</nav>
 	</article>
 
