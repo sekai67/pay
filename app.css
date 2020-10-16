@@ -1,0 +1,73 @@
+* {
+	box-sizing: border-box;
+}
+[v-cloak]   {
+	display: none;
+}
+
+body {
+	margin: 4em 1em;
+	background-color: bisque;
+	text-align: center;
+	color: dimgray;
+	font-family: "Kosugi Maru";
+	font-size: 16px;
+}
+a {
+	color: dimgray;
+}
+
+header {
+	margin-bottom: 3em;
+}
+header img {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	border: 4px solid rgba(255,255,255,.8);
+}
+
+nav {
+	margin: 1em auto;
+	background-color: lemonchiffon;
+	border-radius: 1em;
+	width: 12em;
+	font-size: 1.5em;
+	padding: 1em;
+	transition: all 500ms;
+	cursor: pointer;
+}
+nav.small {
+	font-size: .8em;
+}
+nav:hover {
+	box-shadow: rgba(255,255,255,.8) 0 0 8px;
+	transform: scale(1.1);
+	color: darkorange;
+}
+
+section {
+	margin: 2em 0;
+}
+section ol {
+	padding: 0;
+}
+section li {
+	margin: 1em 0;
+}
+img.qrcode {
+	width: 50vw;
+}
+
+footer {
+	margin-top: 5em;
+}
+footer small {
+	cursor: pointer;
+	text-decoration: underline;
+}
+footer pre {
+	display: inline-block;
+	text-align: left;
+	margin: auto;
+}
